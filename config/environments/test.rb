@@ -20,8 +20,9 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  config.cache_store = :null_store
-
+  #Force an in-memory cache store in test environment
+  config.cache_store = :memory_store
+  config.action_controller.perform_caching
   # Render exception templates for rescuable exceptions and raise for other exceptions.
   config.action_dispatch.show_exceptions = :rescuable
 
