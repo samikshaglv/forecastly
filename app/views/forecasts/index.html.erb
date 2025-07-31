@@ -1,2 +1,12 @@
-<h1>Forecasts#index</h1>
-<p>Find me in app/views/forecasts/index.html.erb</p>
+<h1>🌤 Weather Lookup</h1>
+
+<%= form_with url: lookup_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :address, "Enter Address" %><br>
+    <%= form.text_field :address, name: "address", placeholder: "e.g. MG Road, Bangalore" %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit "Get Forecast" %>
+  </div>
+<% end %>
