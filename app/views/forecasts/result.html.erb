@@ -1,0 +1,18 @@
+<h2>Forecast Result</h2>
+
+<% if @location&.valid? && @forecast.present? %>
+  <div>
+    <p><strong>Address:</strong> <%= @address %></p>
+    <p><strong>City:</strong> <%= @location.city %></p>
+    <p><strong>Zip:</strong> <%= @zip %></p>
+    <p><strong>Temperature:</strong> <%= @forecast[:temperature] %>°C</p>
+    <p><strong>High:</strong> <%= @forecast[:temp_max] %>°C</p>
+    <p><strong>Low:</strong> <%= @forecast[:temp_min] %>°C</p>
+    <p><strong>Description:</strong> <%= @forecast[:description] %></p>
+    <p><em><%= @from_cache ? "Served from cache" : "Fresh from API" %></em></p>
+  </div>
+<% else %>
+  <p style="color: red;">Could not fetch forecast for "<%= @address %>"</p>
+<% end %>
+
+<%= link_to "Search Again", root_path %>
